@@ -6,7 +6,7 @@ import com.commanderbattlebook.model.CoBaBo;
 
 public interface CoBaBoDao {
 
-	public List<CoBaBo> getCoBaBo();
+	public List<CoBaBo> getGames();
 	
 	List<CoBaBo> getCoBaBoByGameId(Integer gameId);
 	
@@ -18,7 +18,7 @@ public interface CoBaBoDao {
 	
 	public CoBaBo deleteGameById(Integer gameId);
 	
-	public List<CoBaBo> getGameWinner(String gameWinner);
+	public List<CoBaBo> getGameWinner(Boolean gameWinner);
 
 	
 

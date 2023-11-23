@@ -42,8 +42,8 @@ public class CoBaBoController {
     }
 
     @GET
-    public List<CoBaBo> getCoBaBo() {
-        return service.getCoBaBo();
+    public List<CoBaBo> getGames() {
+        return service.getGames();
     }
 
     @GET
@@ -59,8 +59,8 @@ public class CoBaBoController {
     }
 
     @GET
-    @Path("/gameWinner/{deckName}") 
-    public List<CoBaBo> getGameWinner(@PathParam("deckName") String gameWinner) {
+    @Path("/gameWinner/{winner}") 
+    public List<CoBaBo> getGameWinner(@PathParam("winner") Boolean gameWinner) {
         return service.getGameWinner(gameWinner);
     }
 }

@@ -3,14 +3,14 @@ package com.commanderbattlebook.service;
 import java.util.List;
 
 import com.commanderbattlebook.dao.CoBaBoDao;
-import com.commanderbattlebook.dao.CoBaBoDaoMock;
+import com.commanderbattlebook.dao.CoBaBoDaoImpl;
 import com.commanderbattlebook.model.CoBaBo;
 
 public class CoBaBoService {
-	private CoBaBoDao coBaBoDao = new CoBaBoDaoMock();
+	private CoBaBoDao coBaBoDao = new CoBaBoDaoImpl();
 	
-	public List<CoBaBo> getCoBaBo() {
-			return coBaBoDao.getCoBaBo();
+	public List<CoBaBo> getGames() {
+			return coBaBoDao.getGames();
 	}
 
 	public CoBaBo createGame(CoBaBo newGame) {
@@ -33,7 +33,7 @@ public class CoBaBoService {
 		return coBaBoDao.deleteGameById(id);
 	}
 
-	public List<CoBaBo> getGameWinner(String gameWinner) {
+	public List<CoBaBo> getGameWinner(boolean gameWinner) {
 		return coBaBoDao.getGameWinner(gameWinner);
 	}
 
