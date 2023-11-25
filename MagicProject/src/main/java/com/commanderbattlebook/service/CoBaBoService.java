@@ -18,15 +18,15 @@ public class CoBaBoService {
 	}
 
 	public List<CoBaBo> getGameById(Integer id) {
-		return coBaBoDao.getCoBaBoByGameId(id);
+		return coBaBoDao.getGameById(id);
 	}
 
 	public List<CoBaBo> getGameByDeckName(String name) {
-		return coBaBoDao.getCoBaBoByDeckName(name);
+		return coBaBoDao.getDeckByName(name);
 	}
 
-	public CoBaBo updateGame(CoBaBo updateGame) {
-		return coBaBoDao.updateGame(updateGame);
+	public CoBaBo updatePlayer(CoBaBo updateGame) {
+		return coBaBoDao.updatePlayer(updateGame);
 	}
 
 	public CoBaBo deleteGameByID(Integer id) {
@@ -35,6 +35,10 @@ public class CoBaBoService {
 
 	public List<CoBaBo> getGameWinner(boolean gameWinner) {
 		return coBaBoDao.getGameWinner(gameWinner);
+	}
+
+	public List<CoBaBo> getPlayerById(Integer id) {
+		return coBaBoDao.getPlayerById(id);
 	}
 
 }

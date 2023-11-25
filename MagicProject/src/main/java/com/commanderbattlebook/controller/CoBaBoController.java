@@ -24,20 +24,20 @@ public class CoBaBoController {
 
     
     @DELETE
-    @Path("/{idValue}")
+    @Path("/game/{idValue}")
     public CoBaBo deleteGameByID(@PathParam("idValue") Integer id) {
         return service.deleteGameByID(id);
     }
     
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public CoBaBo updateGame(CoBaBo updateGame) {
-        return service.updateGame(updateGame);
+    public CoBaBo updatePlayer(CoBaBo updateGame) {
+        return service.updatePlayer(updateGame);
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public CoBaBo createMovie(CoBaBo newGame) {
+    public CoBaBo createGame(CoBaBo newGame) {
         return service.createGame(newGame);
     }
 
@@ -48,14 +48,20 @@ public class CoBaBoController {
 
     @GET
     @Path("/{idValue}")
-    public List<CoBaBo> getGameById(@PathParam("idValue") Integer id) {
-        return service.getGameById(id);
+    public List<CoBaBo> getPlayerById(@PathParam("idValue") Integer id) {
+        return service.getPlayerById(id);
     }
-
+    
     @GET
-    @Path("/deck/{deckName}") 
+    @Path("/name/{deckName}") 
     public List<CoBaBo> getGameByDeckName(@PathParam("deckName") String name) {
         return service.getGameByDeckName(name);
+    }
+    
+    @GET
+    @Path("/game/idValue}")
+    public List<CoBaBo> getGameById(@PathParam("idValue") Integer id) {
+        return service.getGameById(id);
     }
 
     @GET

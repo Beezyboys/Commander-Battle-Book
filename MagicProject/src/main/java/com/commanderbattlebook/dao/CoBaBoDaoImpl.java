@@ -6,12 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.commanderbattlebook.model.CoBaBo;
-import com.commanderbattlebook.model.Colors;
+import com.commanderbattlebook.model.Color;
 
 
 public class CoBaBoDaoImpl implements CoBaBoDao{
@@ -28,14 +27,30 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 	private static String selectCoBaBoByDeckName = "SELECT playerId, deckName, color, winner, gameId, updateDateTime, createDateTime\r\n"
 			+ "FROM player\r\n" + 
 			"WHERE deckName LIKE ? ";
+	
+	private static String selectPlayerById = "SELECT playerId, deckName, color, winner, gameId, updateDateTime, createDateTime\r\n"
+			+ "FROM player\r\n" + 
+			"WHERE playerId = ? ";
 
 	private static String selectGameWinners = "SELECT playerId, deckName, color, winner, gameId, updateDateTime, createDateTime\r\n"
 			+ "FROM player\r\n" + "WHERE winner = ? \r\n";
 	
-	private static String createGame = "CALL InsertPlayerData( ?, ?, ?);\r\n"
-			+ "CALL InsertPlayerData( ?, ?, ?);\r\n"
-			+ "CALL InsertPlayerData( ?, ?, ?);\r\n"
-			+ "CALL InsertPlayerData( ?, ?, ?);";
+	private static String createGame = "CALL InsertPlayerData(?, ?, ?);\r\n";
+	
+
+	private static String deleteGameById = "DELETE FROM player\r\n"+ 
+	"WHERE gameId = ?;";
+	
+	private static String deletePlayerById = "DELETE FROM player\r\n"+ 
+			"WHERE playerId = ?;";
+			
+	
+	private static String updatePlayerById =
+			"UPDATE player " +
+			"SET deckName = ?, " +
+				 "color = ?, " +
+				 "winner = ? " +
+			"WHERE playerId = ?";
 
 	@Override
 	public List<CoBaBo> getGames() {
@@ -64,11 +79,11 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 			coBaBo.setPlayerId (result.getInt("playerId"));
 			coBaBo.setDeckName(result.getString("deckName"));
 			String colorString = result.getString("color");
-			Colors color = Colors.convertStringToColor(colorString);
+			Color color = Color.convertStringToColor(colorString);
 			coBaBo.setColor(color);
 			coBaBo.setWinner(result.getBoolean("winner"));
 			coBaBo.setGameId(result.getInt("gameId"));
-			
+			/*
 			coBaBo.setPlayerId (result.getInt("playerId"));
 			coBaBo.setDeckName(result.getString("deckName"));
 			colorString = result.getString("color");
@@ -92,7 +107,7 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 			coBaBo.setColor(color);
 			coBaBo.setWinner(result.getBoolean("winner"));
 			coBaBo.setGameId(result.getInt("gameId"));
-
+			*/
 			myCoBaBo.add(coBaBo);
 		}
 		return myCoBaBo;
@@ -100,7 +115,7 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 
 
 	@Override
-	public List<CoBaBo> getCoBaBoByGameId(Integer gameId) {
+	public List<CoBaBo> getGameById(Integer gameId) {
 		List<CoBaBo> myCobabo = new ArrayList<CoBaBo>();
 		ResultSet result = null;
 		PreparedStatement statement = null;
@@ -122,7 +137,7 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 
 
 	@Override
-	public List<CoBaBo> getCoBaBoByDeckName(String name) {
+	public List<CoBaBo> getDeckByName(String name) {
 		List<CoBaBo> myCobabo = new ArrayList<CoBaBo>();
 		ResultSet result = null;
 		PreparedStatement statement = null;
@@ -149,22 +164,26 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 		
 		Connection connection = MariaDbUtil.getConnection();
 		try {
+	
 			ps = connection.prepareStatement(createGame);
 			ps.setString(1, newGame.getDeckName());
 			ps.setString(2, newGame.getColor().toString());
 			ps.setBoolean(3, newGame.isWinner());
 			
-			ps.setString(4, newGame.getDeckName());
-			ps.setString(5, newGame.getColor().toString());
-			ps.setBoolean(6, newGame.isWinner());
-			
-			ps.setString(7, newGame.getDeckName());
-			ps.setString(8, newGame.getColor().toString());
-			ps.setBoolean(9, newGame.isWinner());
-			
-			ps.setString(10, newGame.getDeckName());
-			ps.setString(11, newGame.getColor().toString());
-			ps.setBoolean(12, newGame.isWinner());
+//			ps = connection.prepareStatement(createGame);
+//			ps.setString(4, newGame.getDeckName());
+//			ps.setString(5, newGame.getColor().toString());
+//			ps.setBoolean(6, newGame.isWinner());
+//			
+//			ps = connection.prepareStatement(createGame);
+//			ps.setString(7, newGame.getDeckName());
+//			ps.setString(8, newGame.getColor().toString());
+//			ps.setBoolean(9, newGame.isWinner());
+//			
+//			ps = connection.prepareStatement(createGame);
+//			ps.setString(10, newGame.getDeckName());
+//			ps.setString(11, newGame.getColor().toString());
+//			ps.setBoolean(12, newGame.isWinner());
 
 			int rowCount = ps.executeUpdate();
 			System.out.println("Rows inserted: " + rowCount);
@@ -177,17 +196,49 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 
 
 	@Override
-	public CoBaBo updateGame(CoBaBo updateGame) {
-		// TODO Auto-generated method stub
-		return null;
+	public CoBaBo updatePlayer(CoBaBo playerId) {
+		PreparedStatement ps = null;
+		
+		Connection connection = MariaDbUtil.getConnection();
+		try {
+			ps = connection.prepareStatement(updatePlayerById);
+			ps.setString(1, playerId.getDeckName());
+			ps.setString(2, playerId.getColor().toString());
+			ps.setBoolean(3, playerId.isWinner());
+			ps.setInt(4, playerId.getPlayerId());
+			int rowCount = ps.executeUpdate();
+			System.out.println("Rows inserted: " + rowCount);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return playerId;
 	}
 
 
 	@Override
 	public CoBaBo deleteGameById(Integer gameId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<CoBaBo> coBaBo = getGameById(gameId);
+		CoBaBo coBaBoToDelete = null;
+
+		if (coBaBo.size() > 0) {
+			coBaBoToDelete = coBaBo.get(0);
+			int updateRowCount = 0;
+			PreparedStatement ps = null;
+
+			Connection conn = MariaDbUtil.getConnection();
+			try {
+				ps = conn.prepareStatement(deleteGameById);
+				ps.setInt(1, gameId);
+				updateRowCount = ps.executeUpdate();
+				System.out.println("Rows deleted: " + updateRowCount);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return coBaBoToDelete;
 	}
+	
 
 
 	@Override
@@ -209,6 +260,35 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 		}
 
 		return myCobabo;
+	}
+
+
+	@Override
+	public List<CoBaBo> getPlayerById(Integer playerId) {
+		List<CoBaBo> myCobabo = new ArrayList<CoBaBo>();
+		ResultSet result = null;
+		PreparedStatement statement = null;
+
+		Connection connection = MariaDbUtil.getConnection();
+		try {
+			statement = connection.prepareStatement(selectPlayerById);
+			statement.setInt(1, playerId);
+
+			result = statement.executeQuery();
+			myCobabo = makeGame(result);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return myCobabo;
+	}
+
+
+	@Override
+	public CoBaBo deletePlayerById(CoBaBo playerId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

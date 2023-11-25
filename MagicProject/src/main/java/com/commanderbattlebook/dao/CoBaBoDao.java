@@ -8,21 +8,22 @@ public interface CoBaBoDao {
 
 	public List<CoBaBo> getGames();
 	
-	List<CoBaBo> getCoBaBoByGameId(Integer gameId);
+	List<CoBaBo> getGameById(Integer gameId);
 	
-	List<CoBaBo> getCoBaBoByDeckName(String name);
+	List<CoBaBo> getDeckByName(String name);
+	
+	List<CoBaBo> getPlayerById(Integer playerId);
 	
 	public CoBaBo createGame(CoBaBo newGame);
-	
-	public CoBaBo updateGame(CoBaBo updateGame);
 	
 	public CoBaBo deleteGameById(Integer gameId);
 	
 	public List<CoBaBo> getGameWinner(Boolean gameWinner);
 
-	
+	public CoBaBo updatePlayer(CoBaBo playerId);
 
-	
+	public CoBaBo deletePlayerById(CoBaBo playerId);
+
 	
 	
 	

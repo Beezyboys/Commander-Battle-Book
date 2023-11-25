@@ -1,0 +1,193 @@
+<style>
+	body { 
+	  background: url(./image/S0DgYWl.png) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+</style>
+
+<div class="row pt-3 justify-content-evenly">
+	<div class="col-sm-6">
+		<div class="card">
+			<div class="card-header text-center">
+				<h3>Create Game</h3>
+				<h5 class="text-success" ng-bind="createStatus"></h5>
+			</div>			
+			<div class="card-body">
+			<form name="createForm">
+				<div class="form-group">
+					<label for="deckName" class="font-weight-bold">DeckName:</label>
+					<input ng-model="player.deckName" required ng-minlength="2" name="deckName"
+						type="text" class="form-control" id="deckName">					
+					<span ng-show="createForm.title.$touched && createForm.title.$invalid"
+						class="text-danger">
+						required and must be at least two characters.
+					</span>					
+				</div>
+				<div class="form-group">
+					<label for="color" class="font-weight-bold">Color:</label>
+					<select ng-options="value for value in colors" required name="color"
+						ng-model="player.color" class="form-control" id="color">
+					</select>
+					<span ng-show="createForm.genre.$touched && createForm.genre.$invalid"
+						class="text-danger">
+						required
+					</span>	
+				</div>
+				<div class="form-group">
+					<label for="releaseYear" class="font-weight-bold">Winner:</label>
+					<select ng-options="value for value in winner" required name="winner"
+						ng-model="player.winner" class="form-control" id="winner">
+					</select>					
+					<span ng-show="createForm.releaseYear.$touched && createForm.releaseYear.$invalid"
+						class="text-danger">
+						required
+					</span>	
+				</div>				
+			</form>
+		</div>
+		
+		</div>
+	</div>
+</div>
+<div class="row pt-3 justify-content-evenly">
+	<div class="col-sm-6">
+		<div class="card">
+			<div class="card-header text-center">
+				<h3>Create Game</h3>
+				<h5 class="text-success" ng-bind="createStatus"></h5>
+			</div>			
+			<div class="card-body">
+			<form name="createForm">
+				<div class="form-group">
+					<label for="deckName" class="font-weight-bold">DeckName:</label>
+					<input ng-model="player.deckName" required ng-minlength="2" name="deckName"
+						type="text" class="form-control" id="deckName">					
+					<span ng-show="createForm.title.$touched && createForm.title.$invalid"
+						class="text-danger">
+						required and must be at least two characters.
+					</span>					
+				</div>
+				<div class="form-group">
+					<label for="color" class="font-weight-bold">Color:</label>
+					<select ng-options="value for value in colors" required name="color"
+						ng-model="player.color" class="form-control" id="color">
+					</select>
+					<span ng-show="createForm.genre.$touched && createForm.genre.$invalid"
+						class="text-danger">
+						required
+					</span>	
+				</div>
+				<div class="form-group">
+					<label for="releaseYear" class="font-weight-bold">Winner:</label>
+					<select ng-options="value for value in winner" required name="winner"
+						ng-model="player.winner" class="form-control" id="winner">
+					</select>					
+					<span ng-show="createForm.releaseYear.$touched && createForm.releaseYear.$invalid"
+						class="text-danger">
+						required
+					</span>	
+				</div>				
+			</form>
+		</div>
+		
+		</div>
+	</div>
+</div>
+<div class="row pt-3 justify-content-evenly">
+	<div class="col-sm-6">
+		<div class="card">
+			<div class="card-header text-center">
+				<h3>Create Game</h3>
+				<h5 class="text-success" ng-bind="createStatus"></h5>
+			</div>			
+			<div class="card-body">
+			<form name="createForm">
+				<div class="form-group">
+					<label for="deckName" class="font-weight-bold">DeckName:</label>
+					<input ng-model="player.deckName" required ng-minlength="2" name="deckName"
+						type="text" class="form-control" id="deckName">					
+					<span ng-show="createForm.title.$touched && createForm.title.$invalid"
+						class="text-danger">
+						required and must be at least two characters.
+					</span>					
+				</div>
+				<div class="form-group">
+					<label for="color" class="font-weight-bold">Color:</label>
+					<select ng-options="value for value in colors" required name="color"
+						ng-model="player.color" class="form-control" id="color">
+					</select>
+					<span ng-show="createForm.genre.$touched && createForm.genre.$invalid"
+						class="text-danger">
+						required
+					</span>	
+				</div>
+				<div class="form-group">
+					<label for="releaseYear" class="font-weight-bold">Winner:</label>
+					<select ng-options="value for value in winner" required name="winner"
+						ng-model="player.winner" class="form-control" id="winner">
+					</select>					
+					<span ng-show="createForm.releaseYear.$touched && createForm.releaseYear.$invalid"
+						class="text-danger">
+						required
+					</span>	
+				</div>				
+			</form>
+		</div>
+		
+		</div>
+	</div>
+</div>
+<div class="row pt-3 justify-content-evenly">
+	<div class="col-sm-6">
+		<div class="card">
+			<div class="card-header text-center">
+				<h3>Create Game</h3>
+				<h5 class="text-success" ng-bind="createStatus"></h5>
+			</div>			
+			<div class="card-body">
+			<form name="createForm">
+				<div class="form-group">
+					<label for="deckName" class="font-weight-bold">DeckName:</label>
+					<input ng-model="player.deckName" required ng-minlength="2" name="deckName"
+						type="text" class="form-control" id="deckName">					
+					<span ng-show="createForm.title.$touched && createForm.title.$invalid"
+						class="text-danger">
+						required and must be at least two characters.
+					</span>					
+				</div>
+				<div class="form-group">
+					<label for="color" class="font-weight-bold">Color:</label>
+					<select ng-options="value for value in colors" required name="color"
+						ng-model="player.color" class="form-control" id="color">
+					</select>
+					<span ng-show="createForm.genre.$touched && createForm.genre.$invalid"
+						class="text-danger">
+						required
+					</span>	
+				</div>
+				<div class="form-group">
+					<label for="releaseYear" class="font-weight-bold">Winner:</label>
+					<select ng-options="value for value in winner" required name="winner"
+						ng-model="player.winner" class="form-control" id="winner">
+					</select>					
+					<span ng-show="createForm.releaseYear.$touched && createForm.releaseYear.$invalid"
+						class="text-danger">
+						required
+					</span>	
+				</div>				
+			</form>
+		</div>
+		
+		</div>
+	</div>
+</div>
+<div class="text-center">
+			<button type="button" class="btn btn-success"
+				ng-disabled="createForm.$invalid || disableCreate"
+				ng-click="createGame()">Create Game</button>			
+			<button type="button" class="btn btn-info"
+				ng-click="clear()">Clear Game</button>
+		</div>
