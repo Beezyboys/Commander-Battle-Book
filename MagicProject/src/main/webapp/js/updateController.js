@@ -44,6 +44,10 @@
 		$scope.goToSearchView = function() {
 			$location.path('/search');
 		}
+		
+		$scope.goToPlayView = function() {
+			$location.path('/playGame');
+		}
 
 		$scope.getGameById();
 

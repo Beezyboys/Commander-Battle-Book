@@ -185,10 +185,13 @@
 </div>
 <div class="card-footer text-center">
 	<button type="button" class="btn btn-success"
-		ng-disabled="updateForm1.$invalid && updateForm2.$invalid && updateForm3.$invalid && updateForm4.$invalid || disableUpdate"
+		ng-disabled="updateForm1.$invalid || updateForm2.$invalid || updateForm3.$invalid || updateForm4.$invalid || disableUpdate"
 		ng-click="updatePlayer()">Update</button>
+		<button type="button" class="btn btn-warning"
+		ng-disabled="updateForm1.$invalid || updateForm2.$invalid || updateForm3.$invalid || updateForm4.$invalid || disableUpdate"
+		ng-click="goToPlayView()">Play Game</button>
 	<button type="button" class="btn btn-danger"
-		ng-disables="updateForm1.$invalid && updateForm2.$invalid && updateForm3.$invalid && updateForm4.$invalid || disableDelete" ng-click="deleteGameById()">
+		ng-click="deleteGameById()">
 		Delete
 	</button>
 	<button type="button" class="btn btn-info" ng-click="goToSearchView()">
