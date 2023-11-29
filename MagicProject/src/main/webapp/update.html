@@ -1,70 +1,203 @@
-<style>
-	body { 
-	  background: url(./image/S0DgYWl.png) no-repeat center center fixed; 
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
-	}
-</style>
-<div class="row">
-	<div class="col-sm-7">
-		<div class="card bg-light">
-			<div class="card-header text-center">
-				<h3>Update Player</h3>
-				<h5 class="text-success text-center" ng-bind="updateStatus"></h5>
-			</div>			
-		
-			<div class="card-body">
-			<form name="updateForm">
-				<div class="form-group">
-					<label for="title" class="font-weight-bold">DeckName:</label>
-					<input ng-model="player.deckName" required ng-minlength="2"
-						name="title" type="text" class="form-control"
-						id="title">
-						<span class="text-danger" ng-if="!updateForm.title.$valid">
-						Required and must be at least 2 characters.
-						</span>
-						
+
+<div class="container-fluid">
+	<div class="row pt-3">
+		<div class="col-lg-6 mb-3">
+			<div class="card bg-light">
+				<div class="card-header text-center">
+					<h3>Update Player</h3>
+					<h5 class="text-success text-center" ng-bind="updateStatus"></h5>
 				</div>
-				<div class="form-group">
-					<label for="color" class="font-weight-bold">Color Identity:</label>
-					<select ng-options="value for value in colors"
-						ng-model="player.color" class="form-control" id="color">
-					</select>
+
+				<div class="card-body">
+					<form name="updateForm1">
+						<div class="form-group">
+							<label for="deckName" class="font-weight-bold">DeckName:</label>
+							<input ng-model="player1.deckName" required ng-minlength="2"
+								name="deckName" type="text" class="form-control" id="deckName">
+							<span class="text-danger" ng-if="!updateForm1.deckName.$valid">
+								Required and must be at least 2 characters. </span>
+
+						</div>
+						<div class="form-group">
+							<label for="color" class="font-weight-bold">Color
+								Identity:</label> <select ng-options="value for value in colors"
+								ng-model="player1.color" class="form-control" id="color">
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="winner" class="font-weight-bold">Winner:</label> <select
+								ng-options="value for value in winner" ng-model="player1.winner"
+								class="form-control">
+							</select>
+						</div>
+						<div>
+							<span class="font-weight-bold">Player ID:</span> <span
+								ng-bind="player1.playerId" id="playerId"></span>
+						</div>
+						<div>
+							<span class="font-weight-bold">Create Date:</span> <span
+								ng-bind="player1.createDateTime" id="createDateTime"></span>
+						</div>
+						<div>
+							<span class="font-weight-bold">Update Date:</span> <span
+								ng-bind="player1.updateDateTime" id="updateDateTime"></span>
+						</div>
+					</form>
 				</div>
-				<div class="form-group">
-					<label for="releaseYear" class="font-weight-bold">Winner:</label>
-						<select ng-options="value for value in winner"
-						ng-model="player.winner" class="form-control">
-					</select>
-				</div>
-				<div>
-					<span class="font-weight-bold">Player ID:</span> <span
-						ng-bind="player.playerId" id="playerId"></span>
-				</div>
-				<div>
-					<span class="font-weight-bold">Create Date:</span> <span
-						ng-bind="player.createDateTime" id="createDateTime"></span>
-				</div>
-				<div>
-					<span class="font-weight-bold">Update Date:</span> <span
-						ng-bind="player.updateDateTime" id="updateDateTime"></span>
-				</div>
-			</form>
-			</div>
-			<div class="card-footer text-center">
-				<button type="button" class="btn btn-success" ng-disabled="updateForm.$invalid || disableUpdate" ng-click="updatePlayer()">
-				Update
-				</button>
-				<button type="button" class="btn btn-info" ng-click="goToSearchView()">
-				Cancel
-				</button>
 			</div>
 		</div>
-	</div>
-	<div class="col-sm-5">		
-		<div class="pt-5">
+		<div class="col-lg-6 mb-3">
+			<div class="card bg-light">
+				<div class="card-header text-center">
+					<h3>Update Player</h3>
+					<h5 class="text-success text-center" ng-bind="updateStatus"></h5>
+				</div>
+
+				<div class="card-body">
+					<form name="updateForm2">
+						<div class="form-group">
+							<label for="deckName" class="font-weight-bold">DeckName:</label>
+							<input ng-model="player2.deckName" required ng-minlength="2"
+								name="deckName" type="text" class="form-control" id="deckName">
+							<span class="text-danger" ng-if="!updateForm2.deckName.$valid">
+								Required and must be at least 2 characters. </span>
+
+						</div>
+						<div class="form-group">
+							<label for="color" class="font-weight-bold">Color
+								Identity:</label> <select ng-options="value for value in colors"
+								ng-model="player2.color" class="form-control" id="color">
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="winner" class="font-weight-bold">Winner:</label> <select
+								ng-options="value for value in winner" ng-model="player2.winner"
+								class="form-control">
+							</select>
+						</div>
+						<div>
+							<span class="font-weight-bold">Player ID:</span> <span
+								ng-bind="player2.playerId" id="playerId"></span>
+						</div>
+						<div>
+							<span class="font-weight-bold">Create Date:</span> <span
+								ng-bind="player2.createDateTime" id="createDateTime"></span>
+						</div>
+						<div>
+							<span class="font-weight-bold">Update Date:</span> <span
+								ng-bind="player2.updateDateTime" id="updateDateTime"></span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 mb-3">
+			<div class="card bg-light">
+				<div class="card-header text-center">
+					<h3>Update Player</h3>
+					<h5 class="text-success text-center" ng-bind="updateStatus"></h5>
+				</div>
+
+				<div class="card-body">
+					<form name="updateForm3">
+						<div class="form-group">
+							<label for="deckName" class="font-weight-bold">DeckName:</label>
+							<input ng-model="player3.deckName" required ng-minlength="2"
+								name="deckName" type="text" class="form-control" id="deckName">
+							<span class="text-danger" ng-if="!updateForm3.deckName.$valid">
+								Required and must be at least 2 characters. </span>
+
+						</div>
+						<div class="form-group">
+							<label for="color" class="font-weight-bold">Color
+								Identity:</label> <select ng-options="value for value in colors"
+								ng-model="player3.color" class="form-control" id="color">
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="winner" class="font-weight-bold">Winner:</label> <select
+								ng-options="value for value in winner" ng-model="player3.winner"
+								class="form-control">
+							</select>
+						</div>
+						<div>
+							<span class="font-weight-bold">Player ID:</span> <span
+								ng-bind="player3.playerId" id="playerId"></span>
+						</div>
+						<div>
+							<span class="font-weight-bold">Create Date:</span> <span
+								ng-bind="player3.createDateTime" id="createDateTime"></span>
+						</div>
+						<div>
+							<span class="font-weight-bold">Update Date:</span> <span
+								ng-bind="player3.updateDateTime" id="updateDateTime"></span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 mb-3">
+			<div class="card bg-light">
+				<div class="card-header text-center">
+					<h3>Update Player</h3>
+					<h5 class="text-success text-center" ng-bind="updateStatus"></h5>
+				</div>
+
+				<div class="card-body">
+					<form name="updateForm4">
+						<div class="form-group">
+							<label for="deckName" class="font-weight-bold">DeckName:</label>
+							<input ng-model="player4.deckName" required ng-minlength="2"
+								name="deckName" type="text" class="form-control" id="deckName">
+							<span class="text-danger" ng-if="!updateForm4.deckName.$valid">
+								Required and must be at least 2 characters. </span>
+
+						</div>
+						<div class="form-group">
+							<label for="color" class="font-weight-bold">Color
+								Identity:</label> <select ng-options="value for value in colors"
+								ng-model="player4.color" class="form-control" id="color">
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="winner" class="font-weight-bold">Winner:</label> <select
+								ng-options="value for value in winner" ng-model="player4.winner"
+								class="form-control">
+							</select>
+						</div>
+						<div>
+							<span class="font-weight-bold">Player ID:</span> <span
+								ng-bind="player4.playerId" id="playerId"></span>
+						</div>
+						<div>
+							<span class="font-weight-bold">Create Date:</span> <span
+								ng-bind="player4.createDateTime" id="createDateTime"></span>
+						</div>
+						<div>
+							<span class="font-weight-bold">Update Date:</span> <span
+								ng-bind="player4.updateDateTime" id="updateDateTime"></span>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+<div class="card-footer text-center">
+	<button type="button" class="btn btn-success"
+		ng-disabled="updateForm1.$invalid && updateForm2.$invalid && updateForm3.$invalid && updateForm4.$invalid || disableUpdate"
+		ng-click="updatePlayer()">Update</button>
+	<button type="button" class="btn btn-danger"
+		ng-disables="updateForm1.$invalid && updateForm2.$invalid && updateForm3.$invalid && updateForm4.$invalid || disableDelete" ng-click="deleteGameById()">
+		Delete
+	</button>
+	<button type="button" class="btn btn-info" ng-click="goToSearchView()">
+		Back To Search</button>
+</div>
+
+
+<div class="col-sm-5">
+	<div class="pt-5"></div>
+</div>
+
+

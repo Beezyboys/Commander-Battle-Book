@@ -17,6 +17,18 @@ public class CoBaBoService {
 		return coBaBoDao.createGame(newGame);
 	}
 
+//	public CoBaBo createGame2(CoBaBo newGame2) {
+//		return coBaBoDao.createGame2(newGame2);
+//	}
+//	
+//	public CoBaBo createGame3(CoBaBo newGame3) {
+//		return coBaBoDao.createGame3(newGame3);
+//	}
+//	
+//	public CoBaBo createGame4(CoBaBo newGame4) {
+//		return coBaBoDao.createGame4(newGame4);
+//	}
+//	
 	public List<CoBaBo> getGameById(Integer id) {
 		return coBaBoDao.getGameById(id);
 	}

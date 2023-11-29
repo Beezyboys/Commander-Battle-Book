@@ -59,7 +59,7 @@ public class CoBaBoController {
     }
     
     @GET
-    @Path("/game/idValue}")
+    @Path("/game/{idValue}")
     public List<CoBaBo> getGameById(@PathParam("idValue") Integer id) {
         return service.getGameById(id);
     }

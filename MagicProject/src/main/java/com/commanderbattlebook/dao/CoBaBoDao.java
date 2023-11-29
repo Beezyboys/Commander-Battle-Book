@@ -15,7 +15,13 @@ public interface CoBaBoDao {
 	List<CoBaBo> getPlayerById(Integer playerId);
 	
 	public CoBaBo createGame(CoBaBo newGame);
-	
+//	
+//	public CoBaBo createGame2(CoBaBo newGame2);
+//	
+//	public CoBaBo createGame3(CoBaBo newGame3);
+//	
+//	public CoBaBo createGame4(CoBaBo newGame4);
+//	
 	public CoBaBo deleteGameById(Integer gameId);
 	
 	public List<CoBaBo> getGameWinner(Boolean gameWinner);
@@ -23,9 +29,5 @@ public interface CoBaBoDao {
 	public CoBaBo updatePlayer(CoBaBo playerId);
 
 	public CoBaBo deletePlayerById(CoBaBo playerId);
-
-	
-	
-	
 	
 }

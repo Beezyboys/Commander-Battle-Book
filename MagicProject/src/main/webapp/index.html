@@ -18,12 +18,21 @@
 <!-- AngularJS import -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<style>
+	body { 
+	  background: url(./image/Black_Tablecloth-4.jpg) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+</style>
 <script src="./js/coBaBo.js"></script>
 <script src="./js/coBaBoController.js"></script>
 <script src="./js/searchController.js"></script>
 <script src="./js/updateController.js"></script>
 <script src="./js/createController.js"></script>
-<script src="./js/gameDisplayController.js"></script>
+<link rel="stylesheet" href="./css/magic.css">
     <title>Commander Battle Book</title>
 </head>
 
@@ -49,7 +58,7 @@
             </ul>
         </div>
     </nav>
-    <div class="container-fluid">
+    <div class="">
     <div ng-view></div>
     </div>
     

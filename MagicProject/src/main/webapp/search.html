@@ -1,43 +1,50 @@
 <style>
-	body { 
-	  background: url(./image/S0DgYWl.png) no-repeat center center fixed; 
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
+	.myspinner {
+		height: 100vh;
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 </style>
 <div class="card mt-3">
 	<div class="card-header bg-info">
-		<h4>Search For Games</h4>
+		<h4>Search Games</h4>
 		<button class="btn btn-success" ng-click="getAllGames()" >Refresh Games</button>
+		<span class="float-right">
+		Search: <input type="text" maxlength="25" ng-model="searchValue">
+		</span>
 	</div>
 	<div class="card-body">
-		<table class="table table-hover ">
+		<table class="table table-hover">
 			<thead class="thead-light">
 				<tr>
-					<th>Player Id</th>
+					
+					<th>Game ID</th>
+					<th>Winner</th>
 					<th>Deck Name</th>
 					<th>Color</th>
-					<th>Winner</th>
-					<th>Game ID</th>
 					<th>Create Date</th>					
 				</tr>
 			</thead>
-			<tbody>
-				<tr ng-repeat="player in players" 
-				ng-click="goToUpdateView(player.playerId)" class="text-white" >
-					<td>{{player.playerId}}</td>
+			<tbody ng=!showSpinner>
+				<tr ng-repeat="player in players | filter:searchValue | orderBy:orderByValue:reverse" 
+				ng-click="goToUpdateView(player.gameId)" class="text-white bg-dark" >
+					<td>{{player.gameId}}</td>
+					<td>{{player.winner}}</td>
 					<td>{{player.deckName}}</td>
 					<td>{{player.color}}</td>
-					<td >{{player.winner}}</td>
-					<td>{{player.gameId}}</td>
-					<td>{{player.updateDateTime}}</td>					
+					<td>{{player.createDateTime | date:'medium'}}</td>					
 				</tr>
 			</tbody>		
-		</table>	
+		</table>
+			<div ng-show="showSpinner" class="myspinner">
+	<div class="spinner-border" style="width: 5rem; height: 5rem;"></div>
+	<br>
+	<p>Loading search results...</p>
+</div>
 	</div>
 	<div class="card-footer bg-info">
-		Please select a player to update/delete
+		Please select a game to update/delete
 	</div>
 </div>

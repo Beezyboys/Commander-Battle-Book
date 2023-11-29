@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,14 +36,20 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 	private static String selectGameWinners = "SELECT playerId, deckName, color, winner, gameId, updateDateTime, createDateTime\r\n"
 			+ "FROM player\r\n" + "WHERE winner = ? \r\n";
 	
-	private static String createGame = "CALL InsertPlayerData(?, ?, ?);\r\n";
+	private static String createGame1 = "CALL InsertPlayerData(?, ?, ?);\r\n";
 	
+//	private static String createGame2 = "CALL InsertPlayerData(?, ?, ?);\r\n";
+//	
+//	private static String createGame3 = "CALL InsertPlayerData(?, ?, ?);\r\n";
+//	
+//	private static String createGame4 = "CALL InsertPlayerData(?, ?, ?);\r\n";
+//	
 
 	private static String deleteGameById = "DELETE FROM player\r\n"+ 
 	"WHERE gameId = ?;";
 	
-	private static String deletePlayerById = "DELETE FROM player\r\n"+ 
-			"WHERE playerId = ?;";
+//	private static String deletePlayerById = "DELETE FROM player\r\n"+ 
+//			"WHERE playerId = ?;";
 			
 	
 	private static String updatePlayerById =
@@ -83,6 +90,8 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 			coBaBo.setColor(color);
 			coBaBo.setWinner(result.getBoolean("winner"));
 			coBaBo.setGameId(result.getInt("gameId"));
+			coBaBo.setCreateDateTime(result.getObject("createDateTime", LocalDateTime.class));
+			coBaBo.setUpdateDateTime(result.getObject("updateDateTime", LocalDateTime.class));
 			/*
 			coBaBo.setPlayerId (result.getInt("playerId"));
 			coBaBo.setDeckName(result.getString("deckName"));
@@ -165,7 +174,7 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 		Connection connection = MariaDbUtil.getConnection();
 		try {
 	
-			ps = connection.prepareStatement(createGame);
+			ps = connection.prepareStatement(createGame1);
 			ps.setString(1, newGame.getDeckName());
 			ps.setString(2, newGame.getColor().toString());
 			ps.setBoolean(3, newGame.isWinner());
@@ -193,6 +202,69 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 		
 		return newGame;
 	}
+
+//	@Override
+//	public CoBaBo createGame2(CoBaBo newGame2) {
+//		PreparedStatement ps = null;
+//		
+//		Connection connection = MariaDbUtil.getConnection();
+//		try {
+//	
+//			ps = connection.prepareStatement(createGame1);
+//			ps.setString(1, newGame2.getDeckName());
+//			ps.setString(2, newGame2.getColor().toString());
+//			ps.setBoolean(3, newGame2.isWinner());
+//			
+//			int rowCount = ps.executeUpdate();
+//			System.out.println("Rows inserted: " + rowCount);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return newGame2;
+//	}
+//
+//	@Override
+//	public CoBaBo createGame3(CoBaBo newGame3) {
+//		PreparedStatement ps = null;
+//		
+//		Connection connection = MariaDbUtil.getConnection();
+//		try {
+//	
+//			ps = connection.prepareStatement(createGame3);
+//			ps.setString(1, newGame3.getDeckName());
+//			ps.setString(2, newGame3.getColor().toString());
+//			ps.setBoolean(3, newGame3.isWinner());
+//
+//			int rowCount = ps.executeUpdate();
+//			System.out.println("Rows inserted: " + rowCount);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return newGame3;
+//	}
+//
+//	@Override
+//	public CoBaBo createGame4(CoBaBo newGame4) {
+//		PreparedStatement ps = null;
+//		
+//		Connection connection = MariaDbUtil.getConnection();
+//		try {
+//	
+//			ps = connection.prepareStatement(createGame4);
+//			ps.setString(1, newGame4.getDeckName());
+//			ps.setString(2, newGame4.getColor().toString());
+//			ps.setBoolean(3, newGame4.isWinner());
+//
+//			int rowCount = ps.executeUpdate();
+//			System.out.println("Rows inserted: " + rowCount);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return newGame4;
+//	}
 
 
 	@Override
@@ -290,8 +362,6 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 	
 }

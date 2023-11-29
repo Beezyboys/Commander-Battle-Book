@@ -8,7 +8,8 @@
 		
 		$scope.colors = ['W', 'U', 'B', 'R', 'G', 'WU', 'WB', 'WR', 'WG', 'UB', 'UR', 'UG', 'BR', 'BG', 'RG', 'WUB', 'WUR', 'WUG', 'WBR', 'WBG', 'WRG', 'UBR', 'UBG', 'URG', 'BRG', 'WUBR', 'WUBG', 'WURG', 'WBRG', 'UBRG', 'WUBRG', 'Colorless'];
 		$scope.winner = ['true','false']
-		$scope.createGame = function() {
+		$scope.createGame = function(player) {
+			$scope.player = player;
 			$http.post("/magicproject/webapi/CommanderBattleBook/", $scope.player)
 			.then(function(response) {				
 				$scope.createStatus = 'create successful';
@@ -17,6 +18,12 @@
 				$scope.createStatus = 'error trying to create game';	
 				console.log('error http POST game: ' + response.status);
 			});
+			$scope.goToPlayView = function(gameId) {
+
+				console.log('go to play view');
+				console.log('gameId: ' + gameId);
+				$location.path('/create/' + gameId);
+			}
 		}
 		
 		$scope.clear = function() {

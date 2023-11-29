@@ -20,9 +20,13 @@ var magicapp = angular.module('magicapp',['ngRoute']);
 		  .when("/resume", {
 		    templateUrl : "resume.html"
 		  })
-		  .when("/update/:playerId", {
+		  .when("/update/:gameId", {
 			  templateUrl : "update.html",
 			  controller: "updateController"
+		  })
+		  .when("/playGame", {
+			  templateUrl : "play.html",
+			  controller: "playController"
 		  })
 		   .otherwise({
 		    templateUrl : "main.html"
