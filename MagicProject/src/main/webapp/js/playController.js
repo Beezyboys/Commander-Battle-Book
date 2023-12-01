@@ -6,9 +6,10 @@
 
 
 
-		magicapp.controller('updateController', function($scope, $http, $routeParams, $location) {
+		magicapp.controller('playController', function($scope, $http, $routeParams, $location) {
 		$scope.winner = [true, false];
 		$scope.colors = ['W', 'U', 'B', 'R', 'G', 'WU', 'WB', 'WR', 'WG', 'UB', 'UR', 'UG', 'BR', 'BG', 'RG', 'WUB', 'WUR', 'WUG', 'WBR', 'WBG', 'WRG', 'UBR', 'UBG', 'URG', 'BRG', 'WUBR', 'WUBG', 'WURG', 'WBRG', 'UBRG', 'WUBRG', 'Colorless'];
+		/*
 		$scope.updatePlayer = function() {
 			$http.put("/magicproject/webapi/CommanderBattleBook/", $scope.player)
 				.then(function(response) {
@@ -18,6 +19,7 @@
 					console.log('error http PUT player: ' + response.status);
 				});
 		}
+		*/
 		$scope.getGameById = function() {
 			$http.get("/magicproject/webapi/CommanderBattleBook/game/" + $routeParams.gameId)
 				.then(function(response) {
@@ -31,16 +33,6 @@
 
 				});
 		}
-		$scope.deleteGameById = function() {
-			$http.delete("/magicproject/webapi/CommanderBattleBook/game/" + $routeParams.gameId)
-				 .then(function(response) {
-					$scope.updateStatus = 'delete successful';
-					$scope.disableUpdate = true;
-				}, function(response) {
-					$scope.updateStatus = 'error trying to delete game';
-					console.log('error http DELETE game: ' + response.status);
-				});
-				}
 		$scope.goToSearchView = function() {
 			$location.path('/search');
 		}

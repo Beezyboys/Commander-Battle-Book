@@ -24,7 +24,7 @@ var magicapp = angular.module('magicapp',['ngRoute']);
 			  templateUrl : "update.html",
 			  controller: "updateController"
 		  })
-		  .when("/playGame/:gameId", {
+		  .when("/play/:gameId", {
 			  templateUrl : "play.html",
 			  controller: "playController"
 		  })

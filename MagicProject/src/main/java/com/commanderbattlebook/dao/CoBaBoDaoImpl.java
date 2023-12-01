@@ -268,23 +268,24 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 
 
 	@Override
-	public CoBaBo updatePlayer(CoBaBo playerId) {
+	public List<CoBaBo> updatePlayer(List <CoBaBo> players) {
 		PreparedStatement ps = null;
 		
 		Connection connection = MariaDbUtil.getConnection();
+		for(CoBaBo player : players) {
 		try {
 			ps = connection.prepareStatement(updatePlayerById);
-			ps.setString(1, playerId.getDeckName());
-			ps.setString(2, playerId.getColor().toString());
-			ps.setBoolean(3, playerId.isWinner());
-			ps.setInt(4, playerId.getPlayerId());
+			ps.setString(1, player.getDeckName());
+			ps.setString(2, player.getColor().toString());
+			ps.setBoolean(3, player.isWinner());
+			ps.setInt(4, player.getPlayerId());
 			int rowCount = ps.executeUpdate();
 			System.out.println("Rows inserted: " + rowCount);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		return playerId;
+		}
+		return players;
 	}
 
 

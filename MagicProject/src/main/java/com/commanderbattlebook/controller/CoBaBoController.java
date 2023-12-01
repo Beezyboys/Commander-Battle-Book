@@ -31,7 +31,7 @@ public class CoBaBoController {
     
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public CoBaBo updatePlayer(CoBaBo updateGame) {
+    public List<CoBaBo> updatePlayer(List<CoBaBo> updateGame) {
         return service.updatePlayer(updateGame);
     }
 

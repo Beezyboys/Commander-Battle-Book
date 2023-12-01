@@ -37,7 +37,7 @@ public class CoBaBoService {
 		return coBaBoDao.getDeckByName(name);
 	}
 
-	public CoBaBo updatePlayer(CoBaBo updateGame) {
+	public List <CoBaBo> updatePlayer(List <CoBaBo> updateGame) {
 		return coBaBoDao.updatePlayer(updateGame);
 	}
 

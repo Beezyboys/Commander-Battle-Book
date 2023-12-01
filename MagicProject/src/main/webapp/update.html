@@ -186,10 +186,10 @@
 <div class="card-footer text-center">
 	<button type="button" class="btn btn-success"
 		ng-disabled="updateForm1.$invalid || updateForm2.$invalid || updateForm3.$invalid || updateForm4.$invalid || disableUpdate"
-		ng-click="updatePlayer()">Update</button>
+		ng-click="updatePlayer();">Update</button>
 		<button type="button" class="btn btn-warning"
 		ng-disabled="updateForm1.$invalid || updateForm2.$invalid || updateForm3.$invalid || updateForm4.$invalid || disableUpdate"
-		ng-click="goToPlayView()">Play Game</button>
+		ng-click="goToPlayView(player1.gameId)">Play Game</button>
 	<button type="button" class="btn btn-danger"
 		ng-click="deleteGameById()">
 		Delete

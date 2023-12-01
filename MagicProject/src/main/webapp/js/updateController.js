@@ -10,12 +10,13 @@
 		$scope.winner = [true, false];
 		$scope.colors = ['W', 'U', 'B', 'R', 'G', 'WU', 'WB', 'WR', 'WG', 'UB', 'UR', 'UG', 'BR', 'BG', 'RG', 'WUB', 'WUR', 'WUG', 'WBR', 'WBG', 'WRG', 'UBR', 'UBG', 'URG', 'BRG', 'WUBR', 'WUBG', 'WURG', 'WBRG', 'UBRG', 'WUBRG', 'Colorless'];
 		$scope.updatePlayer = function() {
-			$http.put("/magicproject/webapi/CommanderBattleBook/", $scope.player)
+			var players = [$scope.player1, $scope.player2, $scope.player3, $scope.player4];
+			$http.put("/magicproject/webapi/CommanderBattleBook/", players)
 				.then(function(response) {
 					$scope.updateStatus = 'update successful';
 				}, function(response) {
 					$scope.updateStatus = 'error trying to update game';
-					console.log('error http PUT player: ' + response.status);
+					console.log('error http PUT game: ' + response.status);
 				});
 		}
 		$scope.getGameById = function() {
@@ -44,10 +45,13 @@
 		$scope.goToSearchView = function() {
 			$location.path('/search');
 		}
-		
-		$scope.goToPlayView = function() {
-			$location.path('/playGame');
-		}
+
+	$scope.goToPlayView = function(gameId) {
+
+				console.log('go to play view');
+				console.log('gameId: ' + gameId);
+				$location.path('/play/' + gameId);
+			}
 
 		$scope.getGameById();
 

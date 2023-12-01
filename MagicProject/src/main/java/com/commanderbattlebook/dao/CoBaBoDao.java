@@ -26,7 +26,7 @@ public interface CoBaBoDao {
 	
 	public List<CoBaBo> getGameWinner(Boolean gameWinner);
 
-	public CoBaBo updatePlayer(CoBaBo playerId);
+	public List<CoBaBo> updatePlayer(List<CoBaBo> updateGame);
 
 	public CoBaBo deletePlayerById(CoBaBo playerId);
 	
