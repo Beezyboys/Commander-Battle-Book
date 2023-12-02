@@ -40,7 +40,7 @@ public class CoBaBoService {
 	public List <CoBaBo> updatePlayer(List <CoBaBo> updateGame) {
 		return coBaBoDao.updatePlayer(updateGame);
 	}
-
+	
 	public CoBaBo deleteGameByID(Integer id) {
 		return coBaBoDao.deleteGameById(id);
 	}

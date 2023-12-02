@@ -7,6 +7,7 @@
 					<div>
 						<h1>{{player1.deckName}}</h1>
 						<h5>{{player1.color}}</h5>
+						<h5 class="text-success text-center" ng-bind="updateStatus"></h5>
 					</div>
 				</div>
 				<div class="card-body">
@@ -16,7 +17,7 @@
 							<div class="input-group">
 								<button class="btn btn-outline-secondary" type="button"
 									ng-click="player1.lifeTotal = player1.lifeTotal - 1">-</button>
-								<input type="text" class="form-control text-center"
+								<input type="number" class="form-control text-center"
 									ng-model="player1.lifeTotal" readonly>
 								<button class="btn btn-outline-secondary" type="button"
 									ng-click="player1.lifeTotal = player1.lifeTotal + 1">+</button>
@@ -29,7 +30,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player1.commandDamageFromPlayer2 = player1.commandDamageFromPlayer2 - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player1.commandDamageFromPlayer2" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player1.commandDamageFromPlayer2 = player1.commandDamageFromPlayer2 + 1">+</button>
@@ -39,9 +40,9 @@
 					<label class="font-weight-bold">Command Damage from
 						{{player3.deckName}}:</label>
 					<div class="input-group">
-						<button class="btn btn-outline-secondary" type="button" 
+						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player1.commandDamageFromPlayer3 = player1.commandDamageFromPlayer3 - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player1.commandDamageFromPlayer3" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player1.commandDamageFromPlayer3 = player1.commandDamageFromPlayer3 + 1">+</button>
@@ -53,7 +54,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player1.commandDamageFromPlayer4 = player1.commandDamageFromPlayer4 - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player1.commandDamageFromPlayer4" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player1.commandDamageFromPlayer4 = player1.commandDamageFromPlayer4 + 1">+</button>
@@ -64,7 +65,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player1.poisonCounter = player1.poisonCounter - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player1.poisonCounter" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player1.poisonCounter = player1.poisonCounter + 1">+</button>
@@ -82,6 +83,7 @@
 					<div>
 						<h1>{{player2.deckName}}</h1>
 						<h5>{{player2.color}}</h5>
+						<h5 class="text-success text-center" ng-bind="updateStatus"></h5>
 					</div>
 					<h5 class="text-success" ng-bind="createStatus"></h5>
 				</div>
@@ -92,7 +94,7 @@
 							<div class="input-group">
 								<button class="btn btn-outline-secondary" type="button"
 									ng-click="player2.lifeTotal = player2.lifeTotal - 1">-</button>
-								<input type="text" class="form-control text-center"
+								<input type="number" class="form-control text-center"
 									ng-model="player2.lifeTotal" readonly>
 								<button class="btn btn-outline-secondary" type="button"
 									ng-click="player2.lifeTotal = player2.lifeTotal + 1">+</button>
@@ -105,7 +107,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player2.commandDamageFromPlayer1 = player2.commandDamageFromPlayer1 - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player2.commandDamageFromPlayer1" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player2.commandDamageFromPlayer1 = player2.commandDamageFromPlayer1 + 1">+</button>
@@ -117,7 +119,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player2.commandDamageFromPlayer3 = player2.commandDamageFromPlayer3 - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player2.commandDamageFromPlayer3" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player2.commandDamageFromPlayer3 = player2.commandDamageFromPlayer3 + 1">+</button>
@@ -129,7 +131,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player2.commandDamageFromPlayer4 = player2.commandDamageFromPlayer4 - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player2.commandDamageFromPlayer4" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player2.commandDamageFromPlayer4 = player2.commandDamageFromPlayer4 + 1">+</button>
@@ -140,7 +142,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player2.poisonCounter = player2.poisonCounter - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player2.poisonCounter" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player2.poisonCounter = player2.poisonCounter + 1">+</button>
@@ -158,6 +160,7 @@
 					<div>
 						<h1>{{player3.deckName}}</h1>
 						<h5>{{player3.color}}</h5>
+						<h5 class="text-success text-center" ng-bind="updateStatus"></h5>
 					</div>
 					<h5 class="text-success" ng-bind="createStatus"></h5>
 				</div>
@@ -168,7 +171,7 @@
 							<div class="input-group">
 								<button class="btn btn-outline-secondary" type="button"
 									ng-click="player3.lifeTotal = player3.lifeTotal - 1">-</button>
-								<input type="text" class="form-control text-center"
+								<input type="number" class="form-control text-center"
 									ng-model="player3.lifeTotal" readonly>
 								<button class="btn btn-outline-secondary" type="button"
 									ng-click="player3.lifeTotal = player3.lifeTotal + 1">+</button>
@@ -181,7 +184,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player3.commandDamageFromPlayer1 = player3.commandDamageFromPlayer1 - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player3.commandDamageFromPlayer1" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player3.commandDamageFromPlayer1 = player3.commandDamageFromPlayer1 + 1">+</button>
@@ -193,7 +196,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player3.commandDamageFromPlayer2 = player3.commandDamageFromPlayer2 - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player3.commandDamageFromPlayer2" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player3.commandDamageFromPlayer2 = player3.commandDamageFromPlayer2 + 1">+</button>
@@ -205,7 +208,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player3.commandDamageFromPlayer4 = player3.commandDamageFromPlayer4 - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player3.commandDamageFromPlayer4" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player3.commandDamageFromPlayer4 = player3.commandDamageFromPlayer4 + 1">+</button>
@@ -216,7 +219,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player3.poisonCounter = player3.poisonCounter - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player3.poisonCounter" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player3.poisonCounter = player3.poisonCounter + 1">+</button>
@@ -234,6 +237,7 @@
 					<div>
 						<h1>{{player4.deckName}}</h1>
 						<h5>{{player4.color}}</h5>
+						<h5 class="text-success text-center" ng-bind="updateStatus"></h5>
 					</div>
 					<h5 class="text-success" ng-bind="createStatus"></h5>
 				</div>
@@ -244,7 +248,7 @@
 							<div class="input-group">
 								<button class="btn btn-outline-secondary" type="button"
 									ng-click="player4.lifeTotal = player4.lifeTotal - 1">-</button>
-								<input type="text" class="form-control text-center"
+								<input type="number" class="form-control text-center"
 									ng-model="player4.lifeTotal" readonly>
 								<button class="btn btn-outline-secondary" type="button"
 									ng-click="player4.lifeTotal = player4.lifeTotal + 1">+</button>
@@ -257,7 +261,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player4.commandDamageFromPlayer1 = player4.commandDamageFromPlayer1 - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player4.commandDamageFromPlayer1" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player4.commandDamageFromPlayer1 = player4.commandDamageFromPlayer1 + 1">+</button>
@@ -269,7 +273,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player4.commandDamageFromPlayer2 = player4.commandDamageFromPlayer2 - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player4.commandDamageFromPlayer2" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player4.commandDamageFromPlayer2 = player4.commandDamageFromPlayer2 + 1">+</button>
@@ -281,7 +285,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player4.commandDamageFromPlayer3 = player4.commandDamageFromPlayer3 - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player4.commandDamageFromPlayer3" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player4.commandDamageFromPlayer3 = player4.commandDamageFromPlayer3 + 1">+</button>
@@ -292,7 +296,7 @@
 					<div class="input-group">
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player4.poisonCounter = player4.poisonCounter - 1">-</button>
-						<input type="text" class="form-control text-center"
+						<input type="number" class="form-control text-center"
 							ng-model="player4.poisonCounter" readonly>
 						<button class="btn btn-outline-secondary" type="button"
 							ng-click="player4.poisonCounter = player4.poisonCounter + 1">+</button>
@@ -305,20 +309,13 @@
 	</div>
 
 </div>
-<div class="card-footer text-center">
-	<button type="button" class="btn btn-success"
-		ng-click="updateWinner();"><div class="form-group">
-  <label class="font-weight-bold">Select Winner:</label>
-  <select ng-model="selectedPlayer">
-    <option value="player1">{{player1.deckName}}</option>
-    <option value="player2">{{player2.deckName}}</option>
-    <option value="player3">{{player3.deckName}}</option>
-    <option value="player4">{{player4.deckName}}</option>
-  </select>
-  </label>
-  </div>
-</button>
-	<button type="button" class="btn btn-info" ng-click="goToSearchView()">
+<div class="card-footer text-center col-sm-12">
+	<button type= "button" class="bg-success text-white form-control mb-1"
+		ng-disabled="!selectedPlayer" ng-click="updateWinner(selectedPlayer)">Select Winner</button>
+	<select ng-model="selectedPlayer"
+		 required ng-options="value for value in players" class="form-control text-center  mb-1">
+	</select>
+	<button type="button" class="btn btn-info form-control" ng-click="goToSearchView()">
 		Back To Search</button>
 </div>
 

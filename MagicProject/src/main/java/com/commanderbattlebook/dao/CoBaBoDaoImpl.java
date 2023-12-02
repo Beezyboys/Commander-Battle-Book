@@ -58,6 +58,11 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 				 "color = ?, " +
 				 "winner = ? " +
 			"WHERE playerId = ?";
+	
+	private static String updatePlayerByIdWinner =
+			"UPDATE player " +
+			"SET winner = ? " +
+			"WHERE playerId = ?";
 
 	@Override
 	public List<CoBaBo> getGames() {
@@ -364,5 +369,5 @@ public class CoBaBoDaoImpl implements CoBaBoDao{
 		return null;
 	}
 
-	
-}
+
+	}

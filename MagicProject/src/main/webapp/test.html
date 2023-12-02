@@ -1,0 +1,17 @@
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multiple Choice Test</title>
+ 
+</head>
+<body ng-controller="multipleChoiceCtrl">
+    
+    <div ng-repeat="question in questions">
+    <h4>{{ question.question }}</h4>
+    <div ng-repeat="option in question.options">
+        <label>
+            <input type="radio" ng-model="userAnswers[$index]" ng-value="option"> {{ option }}
+        </label>
+    </div>
+</div>
+</body>

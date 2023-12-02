@@ -34,7 +34,7 @@ public class CoBaBoController {
     public List<CoBaBo> updatePlayer(List<CoBaBo> updateGame) {
         return service.updatePlayer(updateGame);
     }
-
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public CoBaBo createGame(CoBaBo newGame) {
