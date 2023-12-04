@@ -17,8 +17,8 @@
 			.when("/stack", {
 				templateUrl: "stack.html"
 			})
-			.when("/resume", {
-				templateUrl: "resume.html"
+			.when("/QRCodes", {
+				templateUrl: "QRCodes.html"
 			})
 			.when("/update/:gameId", {
 				templateUrl: "update.html",

@@ -7,7 +7,7 @@
 	align-items: center;
 }
 </style>
-<div class="card mt-3">
+<div class="card mt-3 bg-dark text-white">
 	<div class="card-header bg-info">
 		<h4>Search Games</h4>
 		<button class="btn btn-success" ng-click="getAllGames()">Refresh
@@ -26,17 +26,19 @@
 					<th>Deck Name</th>
 					<th>Color</th>
 					<th>Create Date</th>
+					<th>Update Date</th>
 				</tr>
 			</thead>
 			<tbody ng=!showSpinner>
 				<tr
 					ng-repeat="player in players | filter:searchValue | orderBy:orderByValue:reverse"
-					ng-click="goToUpdateView(player.gameId)" class="text-white bg-dark">
+					ng-click="goToUpdateView(player.gameId)" class="text-white bg-secondary">
 					<td>{{player.gameId}}</td>
 					<td>{{player.winner}}</td>
 					<td>{{player.deckName}}</td>
 					<td>{{player.color}}</td>
 					<td>{{player.createDateTime | date:'medium'}}</td>
+					<td>{{player.updateDateTime | date:'medium'}}</td>
 				</tr>
 			</tbody>
 		</table>

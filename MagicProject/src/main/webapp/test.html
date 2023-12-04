@@ -1,17 +1,90 @@
-<head>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Multiple Choice Test</title>
- 
-</head>
-<body ng-controller="multipleChoiceCtrl">
-    
-    <div ng-repeat="question in questions">
-    <h4>{{ question.question }}</h4>
-    <div ng-repeat="option in question.options">
-        <label>
-            <input type="radio" ng-model="userAnswers[$index]" ng-value="option"> {{ option }}
-        </label>
-    </div>
+<div class="card bg-secondary text-white">
+	<div class="card-header text-center">
+		<title>Magic: The Gathering Color Quiz</title>
+	</div>
+	<h1>Discover Your Magic: The Gathering Color!</h1>
+	<div class="card-body">
+		<form>
+			<div class="form-group">
+				<label>1. What is your preferred play style?</label> <select
+					ng-model="selectedPlayStyles" required
+					ng-options="value for value in playStyles"
+					class="form-control mb-1">
+				</select>
+			</div>
+			<div class="form-group">
+				<label>2. How would you describe yourself?</label> <select
+					ng-model="selectedPersonalities" required
+					ng-options="value for value in personality"
+					class="form-control mb-1">
+				</select>
+			</div>
+			<div class="form-group">
+				<label>3. What is your preferred way of resolving conflicts?</label>
+				<select ng-model="selectedConflicts" required
+					ng-options="value for value in conflicts" class="form-control mb-1">
+				</select>
+			</div>
+			<div class="form-group">
+				<label>4. What is your favorite environment or setting?</label> <select
+					ng-model="selectedEnvironment" required
+					ng-options="value for value in environment"
+					class="form-control mb-1">
+				</select>
+			</div>
+			<div class="form-group">
+				<label>5. Which of the following super powers would you
+					choose?</label> <select ng-model="selectedPower" required
+					ng-options="value for value in powers" class="form-control mb-1">
+				</select>
+			</div>
+			<div class="form-group">
+				<label>6. Which historical figure do you find most
+					interesting?</label> <select ng-model="selectedFigure" required
+					ng-options="value for value in figure" class="form-control mb-1">
+				</select>
+			</div>
+			<div class="form-group">
+				<label>7. What is your favorite weather?</label> <select
+					ng-model="selectedWeather" required
+					ng-options="value for value in weather" class="form-control mb-1">
+				</select>
+			</div>
+			<div class="form-group">
+				<label>8. What is your ideal vacation spot?</label> <select
+					ng-model="selectedVacation" required
+					ng-options="value for value in vacation" class="form-control mb-1">
+				</select>
+			</div>
+			<div class="form-group">
+				<label>9. In, a group project what role are you most likely
+					to take on?</label> <select ng-model="selectedProject" required
+					ng-options="value for value in project" class="form-control mb-1">
+				</select>
+			</div>
+			<div class="form-group">
+				<label>10. What is your preferred method of learning?</label> <select
+					ng-model="selectedLearning" required
+					ng-options="value for value in learning" class="form-control mb-1">
+				</select>
+			</div>
+			<div class="form-group">
+				<label>11. What type of music do you enjoy the most?</label> <select
+					ng-model="selectedMusic" required
+					ng-options="value for value in music" class="form-control mb-1">
+				</select>
+			</div>
+			<div class="form-group">
+				<label>12. How do you approach personal style?</label> <select
+					ng-model="selectedStyle" required
+					ng-options="value for value in style" class="form-control mb-1">
+				</select>
+			</div>
+			<div class="card-footer text-center">
+				<button type="button" class="btn btn-success"
+					ng-click="updateColor();">Update Result</button>
+				<div class="result-container">{{ resultMessage }}</div>
+			</div>
+		</form>
+	</div>
 </div>
-</body>

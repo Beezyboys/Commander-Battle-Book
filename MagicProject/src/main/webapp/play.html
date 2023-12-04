@@ -2,7 +2,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-6 mb-3">
-			<div class="card">
+			<div class="card  bg-secondary text-white">
 				<div class="card-header text-center">
 					<div>
 						<h1>{{player1.deckName}}</h1>
@@ -78,7 +78,7 @@
 
 
 		<div class="col-sm-6 mb-3">
-			<div class="card">
+			<div class="card bg-secondary text-white">
 				<div class="card-header text-center">
 					<div>
 						<h1>{{player2.deckName}}</h1>
@@ -155,7 +155,7 @@
 
 
 		<div class="col-sm-6 mb-3">
-			<div class="card">
+			<div class="card bg-secondary text-white">
 				<div class="card-header text-center">
 					<div>
 						<h1>{{player3.deckName}}</h1>
@@ -232,7 +232,7 @@
 
 
 		<div class="col-sm-6 mb-3">
-			<div class="card">
+			<div class="card bg-secondary text-white">
 				<div class="card-header text-center">
 					<div>
 						<h1>{{player4.deckName}}</h1>
@@ -310,13 +310,15 @@
 
 </div>
 <div class="card-footer text-center col-sm-12">
-	<button type= "button" class="bg-success text-white form-control mb-1"
-		ng-disabled="!selectedPlayer" ng-click="updateWinner(selectedPlayer)">Select Winner</button>
-	<select ng-model="selectedPlayer"
-		 required ng-options="value for value in players" class="form-control text-center  mb-1">
+	<button type="button" class="bg-success text-white form-control mb-1"
+		ng-disabled="!selectedPlayer" ng-click="updateWinner(selectedPlayer)">Select
+		Winner</button>
+	<select ng-model="selectedPlayer" required
+		ng-options="value for value in players"
+		class="form-control text-center  mb-1">
 	</select>
-	<button type="button" class="btn btn-info form-control" ng-click="goToSearchView()">
-		Back To Search</button>
+	<button type="button" class="btn btn-info form-control"
+		ng-click="goToSearchView()">Back To Search</button>
 </div>
 
 
