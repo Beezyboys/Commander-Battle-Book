@@ -21,9 +21,22 @@
 		}
 
 		$scope.clear = function() {
-			$scope.CoBaBo.deckName = '';
-			$scope.CoBaBo.color = '';
-			$scope.CoBaBo.winner = '';
+			$scope.player1.deckName = '';
+			$scope.player1.color = '';
+			$scope.player1.winner = '';
+			$scope.player2.deckName = '';
+			$scope.player2.color = '';
+			$scope.player2.winner = '';
+			$scope.player3.deckName = '';
+			$scope.player3.color = '';
+			$scope.player3.winner = '';
+			$scope.player4.deckName = '';
+			$scope.player4.color = '';
+			$scope.player4.winner = '';
+			
+			$scope.createForm.$setUntouched();
+			$scope.createForm.setPristine();
+			
 			$scope.disableCreate = false;
 		}
 
