@@ -6,7 +6,7 @@
 
 
 
-	magicapp.controller('testController', function($scope, $http, $routeParams, $location) {
+	magicapp.controller('testController', function($scope) {
 		$scope.personality = ['Chaotic', 'Lawful', 'Manipulative', 'Individualistic', 'Naturalistic'];
 		$scope.playStyles = ['Aggressive', 'Control', 'Creature-heavy', 'Well rounded', 'Power at any cost'];
 		$scope.conflicts = ['Direct confrontation and assertiveness', 'Diplomacy and negotiation', 'Mediation and compromise', 'Avoiding conflict and seeking harmony', 'Everyone gives up an equal amount to even the field'];

@@ -2,7 +2,6 @@ package com.commanderbattlebook.model;
 
 import java.time.LocalDateTime;
 
-
 public class CoBaBo {
 
 	private Integer playerId;

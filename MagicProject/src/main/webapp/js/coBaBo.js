@@ -17,9 +17,6 @@
 			.when("/stack", {
 				templateUrl: "stack.html"
 			})
-			.when("/QRCodes", {
-				templateUrl: "QRCodes.html"
-			})
 			.when("/update/:gameId", {
 				templateUrl: "update.html",
 				controller: "updateController"

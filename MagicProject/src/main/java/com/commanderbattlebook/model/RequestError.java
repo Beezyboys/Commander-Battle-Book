@@ -4,7 +4,7 @@ public class RequestError {
 
 	private Integer id;
 	private String message;
-	
+
 	public RequestError(Integer id, String message) {
 		this.id = id;
 		this.message = message;
@@ -25,5 +25,5 @@ public class RequestError {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
 }

@@ -1,4 +1,4 @@
-package com.commanderbattlebook.dao;
+//package com.commanderbattlebook.dao;
 
 //import java.util.ArrayList;
 //import java.util.List;
@@ -54,7 +54,6 @@ package com.commanderbattlebook.dao;
 //		coBaBo.add(testGame4);
 //	}
 
-	
 //	public List<CoBaBo> getGames() {
 //		List<CoBaBo> myCoBaBo = new ArrayList<CoBaBo>();
 //		myCoBaBo.addAll(coBaBo);
