@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MariaDbUtil {
-	private static String connectionUrl = "jdbc:mariadb://localhost:3306/cobabo3?user=root&password=Bbeess21";
+	private static String connectionUrl = "Enter Your SQL DataBase Here";
 
 	public static Connection getConnection() {
 		Connection connection = null;
